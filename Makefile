@@ -51,9 +51,7 @@ $(build)/%.h: lib/%.rb $(mrbc)
 	mruby/bin/mrbc -g -B $(patsubst $(build)/%.h,%, $@) -o $@ $<
 
 $(build)/libressl/lib/libtls.a:
-#	cd libressl && sh autogen.sh
+	cd libressl && sh autogen.sh
 	cd libressl && ./configure  --prefix=$(PWD)/$(build)/libressl --enable-shared=no
 	cd libressl && make
 	cd libressl && make install
-#  (echo $(LDFLAGS) | grep -q static && docker build .) || echo you must build on linux
-#-I~/opt/include

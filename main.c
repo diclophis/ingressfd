@@ -12,6 +12,11 @@
 #include <mruby/error.h>
 
 
+#include "init.h"
+#include "environment.h"
+#include "controller.h"
+#include "globals.h"
+
 //#include "multipart_parser.h"
 //#include "multipart_reader.h"
 
@@ -76,8 +81,15 @@ int main(int argc, char** argv) {
 
   mrb_define_global_const(mrb, "ARGV", args);
 
+  eval_static_libs(
+    mrb,
+    globals,
+    environment,
+    controller,
+    init,
+  NULL);
+
 /*
-  eval_static_libs(mrb, hterm, multipart_parser, multipart_reader, NULL);
   mrbc_context *detective_file = mrbc_context_new(mrb);
   mrbc_filename(mrb, detective_file, config);
   ret = mrb_load_file_cxt(mrb, f, detective_file);
