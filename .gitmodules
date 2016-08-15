@@ -1,0 +1,6 @@
+[submodule "mruby"]
+	path = mruby
+	url = https://github.com/mruby/mruby.git
+[submodule "libressl"]
+	path = libressl
+	url = git@github.com:libressl-portable/portable.git
