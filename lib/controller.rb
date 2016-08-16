@@ -43,8 +43,11 @@ module IngressFd
 
       @failed_to_auth_timeout = UV::Timer.new
       @failed_to_auth_timeout.start(RECONNECT_WAIT * RECONNECT_TRIES, 0) do
-        self.halt :no_ok_auth_failed
+        #self.halt :no_ok_auth_failed
+        self.log :no_ok_auth_failed, "wtf"
       end
+
+      endpoint = Endpoint.new
 
 =begin
       proceed_to_emit_conf = self.install_heartbeat

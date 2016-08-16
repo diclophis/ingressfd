@@ -1,3 +1,5 @@
+UV.disable_stdio_inheritance
+
 $run_loop = UV.default_loop
 
 $stdout = UV::TTY.new(1, 1)

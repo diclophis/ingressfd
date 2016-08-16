@@ -15,6 +15,7 @@
 #include "init.h"
 #include "environment.h"
 #include "controller.h"
+#include "endpoint.h"
 #include "globals.h"
 
 //#include "multipart_parser.h"
@@ -86,6 +87,7 @@ int main(int argc, char** argv) {
     globals,
     environment,
     controller,
+    endpoint,
     init,
   NULL);
 
